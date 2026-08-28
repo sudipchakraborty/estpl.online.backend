@@ -5,7 +5,11 @@ async function sendEmail({
 
     to,
 
+    replyTo,
+
     subject,
+
+    text,
 
     html
 
@@ -18,7 +22,11 @@ async function sendEmail({
 
         to,
 
+        replyTo,
+
         subject,
+
+        text,
 
         html
 

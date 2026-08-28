@@ -1,0 +1,29 @@
+[Unit]
+Description=ESTPL Online Backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=estplapi
+Group=estplapi
+WorkingDirectory=/opt/estpl-online-backend
+EnvironmentFile=/etc/estpl-online-backend.env
+ExecStart=/opt/node/bin/node /opt/estpl-online-backend/server.js
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ReadWritePaths=/opt/estpl-online-backend
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+[Install]
+WantedBy=multi-user.target

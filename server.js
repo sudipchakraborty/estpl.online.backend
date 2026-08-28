@@ -6,6 +6,7 @@ const express = require("express");
 const { Server } = require("socket.io");
 
 const dashboardRoutes = require("./dashboard/dashboardRoutes");
+const contactRoutes = require("./modules/contact/contactRoutes");
 const forgotPasswordRoutes = require("./modules/forgotPassword/forgotPasswordRoutes");
 const inspectionRoutes = require("./modules/inspection/inspectionRoutes");
 const signinRoutes = require("./modules/signin/signinRoutes");
@@ -29,6 +30,7 @@ app.get("/health", (_request, response) => {
 });
 
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/contact", contactRoutes);
 app.use("/api/inspections", inspectionRoutes);
 app.use("/api/signin", signinRoutes);
 app.use("/api/auth/login", signinRoutes);
